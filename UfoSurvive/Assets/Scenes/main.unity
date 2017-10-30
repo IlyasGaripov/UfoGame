@@ -1731,6 +1731,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe5dc56bc2d9494d955a13861583a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationDirection: -1
+  rotationStep: 10
+  rotateFlag: 1
+  objectsArray: []
+  timeBetweenShots: 0.12
 --- !u!1 &1663261863
 GameObject:
   m_ObjectHideFlags: 0
