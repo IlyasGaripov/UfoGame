@@ -17,10 +17,10 @@ public class MovementScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(new Vector3(0, 0, 1));
-        }
+      //  if (Input.GetKey(KeyCode.W))
+      //  {
+            transform.Translate(new Vector3(0, 0, speed));
+      //  }
         //transform.Translate(new Vector3(0, 0, 1));
         if (Input.GetKey(KeyCode.S))
         {

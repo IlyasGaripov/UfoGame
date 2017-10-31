@@ -9,7 +9,7 @@ public class FieldController : MonoBehaviour {
         Debug.Log(other.tag);
         if(other.tag == "Bullet")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 

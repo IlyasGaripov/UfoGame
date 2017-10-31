@@ -48,7 +48,6 @@ public class ShieldsRotateController : MonoBehaviour
     }
 
 
-
     void Start()
     {
     }
