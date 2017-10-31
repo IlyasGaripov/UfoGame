@@ -24,7 +24,6 @@ public class ShieldsRotateController : MonoBehaviour
         currentRotation = gameObject.transform.eulerAngles;
         targetRotation.y = (currentRotation.y + (90 * rotationDirection));
         StartCoroutine(objectRotationAnimation());
-
     }
 
     IEnumerator objectRotationAnimation()
