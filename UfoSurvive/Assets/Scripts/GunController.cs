@@ -5,8 +5,11 @@ using UnityEngine;
 public class GunController : MonoBehaviour {
 
     public Color thisColor;
+    public Color prefabColor;
 
     MeshRenderer thisMesh;
+    MeshRenderer prefabMesh;
+
     public Transform bulletSpawn;
     
     public GameObject bulletPrefab;
@@ -19,8 +22,9 @@ public class GunController : MonoBehaviour {
     void Start () {
         //Thi = GetComponent<Material>();
         thisMesh = GetComponent<MeshRenderer>();
+        
         thisMesh.material.color = thisColor;
-        InvokeRepeating("Fire", 1f,fireRate);
+        InvokeRepeating("Fire", 1.57f,fireRate);
     }
 	
 	// Update is called once per frame
@@ -30,16 +34,21 @@ public class GunController : MonoBehaviour {
     void Fire()
     {
         // Create the Bullet from the Bullet Prefab
-        var bullet = (GameObject)Instantiate(
+        GameObject go;
+        go = (GameObject)Instantiate(
             bulletPrefab,
             bulletSpawn.position,
             bulletSpawn.rotation);
+        prefabMesh = go.GetComponent<MeshRenderer>();
+        prefabMesh.material.color = prefabColor;
+        go.transform.SetParent(transform);
+
 
         // Add velocity to the bullet
         //bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
-        bullet.GetComponent<Rigidbody>().velocity = new Vector3(bulletDirection*speed, 0, 0);
+        go.GetComponent<Rigidbody>().velocity = new Vector3(bulletDirection*speed, 0, 0);
         // Destroy the bullet after 2 seconds
-        Destroy(bullet, 2f);
+        Destroy(go, 2f);
     }
 
 }

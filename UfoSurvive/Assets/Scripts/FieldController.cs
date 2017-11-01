@@ -6,7 +6,7 @@ public class FieldController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         if(other.tag == "Bullet")
         {
             Destroy(other.gameObject);
