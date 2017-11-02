@@ -546,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947723289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 161}
+  m_LocalPosition: {x: 0, y: 3, z: 160.2}
   m_LocalScale: {x: 2.418269, y: 1.3520992, z: 2.4182706}
   m_Children:
   - {fileID: 1563458240}
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5621cf3994921d24eb51156b31800967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.434
+  speed: 0.436
   smoothing: 6
 --- !u!54 &947723295
 Rigidbody:
@@ -612,6 +612,8 @@ MonoBehaviour:
   tilePrefabs:
   - {fileID: 1020226625588502, guid: b544df28b1966ad4da336766efd93bee, type: 2}
   - {fileID: 1345172152567968, guid: 16a2e08cf21758342886e6a2a529db33, type: 2}
+  - {fileID: 1128646117154052, guid: e4828d6f25902104b9d6d31861eb1e1a, type: 2}
+  - {fileID: 1358594959186680, guid: 08ea28ae6bc1c3641b63ad17840a9cd5, type: 2}
 --- !u!4 &1215579382
 Transform:
   m_ObjectHideFlags: 0
