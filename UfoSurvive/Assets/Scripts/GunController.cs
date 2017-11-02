@@ -17,6 +17,7 @@ public class GunController : MonoBehaviour {
     public float speed;
     public float fireRate;
     public int bulletDirection;
+    private Rigidbody thisRigidBody;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +25,7 @@ public class GunController : MonoBehaviour {
         thisMesh = GetComponent<MeshRenderer>();
         
         thisMesh.material.color = thisColor;
-        InvokeRepeating("Fire", 1.57f,fireRate);
+        InvokeRepeating("Fire", 0.125f,fireRate);
     }
 	
 	// Update is called once per frame
@@ -39,6 +40,7 @@ public class GunController : MonoBehaviour {
             bulletPrefab,
             bulletSpawn.position,
             bulletSpawn.rotation);
+
         prefabMesh = go.GetComponent<MeshRenderer>();
         prefabMesh.material.color = prefabColor;
         go.transform.SetParent(transform);
@@ -48,7 +50,7 @@ public class GunController : MonoBehaviour {
         //bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
         go.GetComponent<Rigidbody>().velocity = new Vector3(bulletDirection*speed, 0, 0);
         // Destroy the bullet after 2 seconds
-        Destroy(go, 2f);
+        Destroy(go, 1.9f);
     }
 
 }

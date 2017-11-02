@@ -8,8 +8,8 @@ public class TileManager : MonoBehaviour {
     private Transform playerTransform;
     private float spawnZ = 0.0f;
     private float tileLength = 36;
-    private int amountTilesOnScreen = 3;
-    private float safeZone = 24f;
+    private int amountTilesOnScreen = 9;
+    private float safeZone = 108f;
     private int lastPrefabIndex = 0;
 
 
@@ -24,10 +24,7 @@ public class TileManager : MonoBehaviour {
 
         for (int i = 0; i < amountTilesOnScreen; i++)
         {
-            if (i < 2)
                 SpawnTile(0);
-            else
-                SpawnTile();
         }
 
     }
@@ -36,7 +33,6 @@ public class TileManager : MonoBehaviour {
 	private void Update () {
 		if(playerTransform.position.z - safeZone > (spawnZ) - amountTilesOnScreen*tileLength)
         {
-            Debug.Log(spawnZ);
             SpawnTile();
             DeleteTile();
         }
@@ -54,6 +50,7 @@ public class TileManager : MonoBehaviour {
         go.transform.position = Vector3.forward * spawnZ;
         spawnZ += tileLength;
         activeTiles.Add(go);
+        
     }
 
     private void DeleteTile()
