@@ -1,75 +1,84 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShieldsRotateController : MonoBehaviour
 {
     public int rotationDirection; // -1 for clockwise
-                                       //  1 for anti-clockwise
+                                  //  1 for anti-clockwise
 
-    public int rotationStep = 5;    // should be less than 90
-    public bool rotateFlag = true;
+
+    private bool rotate;
+    private bool alreadyRotate = false;
+
+    public int rotationStep = 4;
+    int delta = 10;
+
+    private bool buttonClicked = false;
  
     // All the objects with which collision will be checked
     public GameObject[] objectsArray;
 
     private Vector3 currentRotation, targetRotation;
 
-    public float timeBetweenShots = 0.01f;  // Allow 3 shots per second
+    public Button bttn;
 
-    private float timestamp;
+    private int direction;
+    private Quaternion qTo = Quaternion.identity;
 
-    private void rotateObject()
+    public void OnPressLeft()
     {
-        currentRotation = gameObject.transform.eulerAngles;
-        targetRotation.y = (currentRotation.y + (90 * rotationDirection));
-        StartCoroutine(objectRotationAnimation());
+        rotationDirection = 1;
+        rotate = true;
+        if (!alreadyRotate)
+            StartCoroutine(RotateAround(currentRotation, 90*rotationDirection, 0.1f));
+    }
+    public void OnPressRight()
+    {
+        rotationDirection = -1;
+        rotate = true;
+        if (!alreadyRotate)
+            StartCoroutine(RotateAround(currentRotation, 90 * rotationDirection, 0.1f));
     }
 
-    IEnumerator objectRotationAnimation()
+    public void OnReleaseLeft()
     {
-        // add rotation step to current rotation.
-        currentRotation.y += (rotationStep * rotationDirection);
-        gameObject.transform.eulerAngles = currentRotation;
-        yield return new WaitForSeconds(0);
-        if (((int)currentRotation.y >(int)targetRotation.y && rotationDirection < 0) ||  ((int)currentRotation.y < (int)targetRotation.y && rotationDirection > 0)) 
-        {
-                StartCoroutine(objectRotationAnimation());        
-        }
-        else
-        {
-            gameObject.transform.eulerAngles = targetRotation;
-        }
+        rotate = false;
     }
-    IEnumerator rotateObjectAgain()
+    public void OnReleaseRight()
     {
-        yield return new WaitForSeconds(0.2f);
-        rotateObject();
+        rotate = false;
     }
-
 
     void Start()
     {
+        currentRotation = new Vector3(0, -1, 0);
     }
 
+    IEnumerator RotateAround(Vector3 axis, float angle, float duration)
+    {
+        float elapsed = 0.0f;
+        float rotated = 0.0f;
+        while (elapsed < duration)
+        {
+            alreadyRotate = true;
+            float step = angle / duration * Time.deltaTime;
+            transform.RotateAround(transform.position, axis, step);
+            elapsed += Time.deltaTime;
+            rotated += step;
+            yield return null;
+        }
+        alreadyRotate = false;
+        transform.RotateAround(transform.position, axis, angle - rotated);
+    }
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown("e") &&  Time.time >= timestamp)
+        if(rotate)
         {
-            rotationDirection = 1;
-            rotateObject();
-            timestamp = Time.time + timeBetweenShots;
-        }
-
-        if (Input.GetKeyDown("q") && Time.time >= timestamp)
-        {
-            rotationDirection = -1;
-            rotateObject();
-            timestamp = Time.time + timeBetweenShots;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, qTo, 2 * Time.deltaTime);
         }
     }
-
 
 }
