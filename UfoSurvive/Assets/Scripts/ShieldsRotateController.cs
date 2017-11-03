@@ -32,14 +32,14 @@ public class ShieldsRotateController : MonoBehaviour
         rotationDirection = 1;
         rotate = true;
         if (!alreadyRotate)
-            StartCoroutine(RotateAround(currentRotation, 90*rotationDirection, 0.1f));
+            StartCoroutine(RotateAround(currentRotation, 90*rotationDirection, 0.12f));
     }
     public void OnPressRight()
     {
         rotationDirection = -1;
         rotate = true;
         if (!alreadyRotate)
-            StartCoroutine(RotateAround(currentRotation, 90 * rotationDirection, 0.1f));
+            StartCoroutine(RotateAround(currentRotation, 90 * rotationDirection, 0.12f));
     }
 
     public void OnReleaseLeft()
@@ -77,7 +77,7 @@ public class ShieldsRotateController : MonoBehaviour
     {
         if(rotate)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, qTo, 2 * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, qTo, 1f * Time.deltaTime);
         }
     }
 
