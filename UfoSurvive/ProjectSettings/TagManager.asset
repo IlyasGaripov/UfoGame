@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
+  - RedBullet
+  - BlueBullet
+  - YellowBullet
+  - GreenBullet
   layers:
   - Default
   - TransparentFX

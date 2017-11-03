@@ -332,8 +332,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisColor: {r: 0.034482718, g: 1, b: 0, a: 1}
   prefabColor: {r: 0.03529412, g: 1, b: 0, a: 1}
+  color: green
+  fc: {fileID: 0}
   bulletSpawn: {fileID: 4568901740253434}
-  bulletPrefab: {fileID: 1114988004783606, guid: dfe70a4fa9eb30347bb6c6cb4f1c7a24,
+  bulletRedPrefab: {fileID: 1114988004783606, guid: dfe70a4fa9eb30347bb6c6cb4f1c7a24,
+    type: 2}
+  bulletBluePrefab: {fileID: 1573328200534854, guid: 5c0dde91fc0aec5449831775a364f408,
+    type: 2}
+  bulletGreenPrefab: {fileID: 1913366210238070, guid: cc4469c85fd51834d947817074ddc852,
+    type: 2}
+  bulletYellowPrefab: {fileID: 1321630881338928, guid: b47e54ce8fee1bb4a92ffbac2ac11971,
     type: 2}
   speed: 5
   fireRate: 1.7
@@ -351,8 +359,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisColor: {r: 1, g: 0.88965523, b: 0, a: 0}
   prefabColor: {r: 1, g: 0.8901961, b: 0, a: 0}
+  color: yellow
+  fc: {fileID: 0}
   bulletSpawn: {fileID: 4984996138941234}
-  bulletPrefab: {fileID: 1114988004783606, guid: dfe70a4fa9eb30347bb6c6cb4f1c7a24,
+  bulletRedPrefab: {fileID: 1114988004783606, guid: dfe70a4fa9eb30347bb6c6cb4f1c7a24,
+    type: 2}
+  bulletBluePrefab: {fileID: 1573328200534854, guid: 5c0dde91fc0aec5449831775a364f408,
+    type: 2}
+  bulletGreenPrefab: {fileID: 1913366210238070, guid: cc4469c85fd51834d947817074ddc852,
+    type: 2}
+  bulletYellowPrefab: {fileID: 1321630881338928, guid: b47e54ce8fee1bb4a92ffbac2ac11971,
     type: 2}
   speed: 5
   fireRate: 1.7
