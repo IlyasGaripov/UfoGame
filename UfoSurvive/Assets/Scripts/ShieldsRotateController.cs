@@ -49,7 +49,7 @@ public class ShieldsRotateController : MonoBehaviour
     public void OnReleaseRight()
     {
         rotate = false;
-    }
+    }   
 
     void Start()
     {
@@ -79,6 +79,7 @@ public class ShieldsRotateController : MonoBehaviour
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, qTo, 1f * Time.deltaTime);
         }
+
     }
 
 }

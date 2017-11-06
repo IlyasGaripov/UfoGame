@@ -24,12 +24,14 @@ public class GunController : MonoBehaviour {
     public int bulletDirection;
     private Rigidbody thisRigidBody;
 
+    public float dieTime;
+
     // Use this for initialization
     void Start () {
         //Thi = GetComponent<Material>();
-        thisMesh = GetComponent<MeshRenderer>();
+       // thisMesh = GetComponent<MeshRenderer>();
      
-        thisMesh.material.color = thisColor;
+       // thisMesh.material.color = thisColor; change mesh color
         InvokeRepeating("Fire", 0.125f,fireRate);
     }
 	
@@ -49,9 +51,9 @@ public class GunController : MonoBehaviour {
             prefabMesh = go.GetComponent<MeshRenderer>();
             prefabMesh.material.color = prefabColor;
             go.transform.SetParent(transform);
-            go.GetComponent<Rigidbody>().velocity = new Vector3(bulletDirection * speed, 0, 0);
+            go.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletDirection * speed);
             // Destroy the bullet after 2 seconds
-            Destroy(go, 1.9f);
+            Destroy(go, dieTime);
         }
         else if (color == "blue")
         {
@@ -60,9 +62,9 @@ public class GunController : MonoBehaviour {
             prefabMesh = go.GetComponent<MeshRenderer>();
             prefabMesh.material.color = prefabColor;
             go.transform.SetParent(transform);
-            go.GetComponent<Rigidbody>().velocity = new Vector3(bulletDirection * speed, 0, 0);
+            go.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletDirection * speed);
             // Destroy the bullet after 2 seconds
-            Destroy(go, 1.9f);
+            Destroy(go, dieTime);
         }
         else if (color == "green")
         {
@@ -71,9 +73,9 @@ public class GunController : MonoBehaviour {
             prefabMesh = go.GetComponent<MeshRenderer>();
             prefabMesh.material.color = prefabColor;
             go.transform.SetParent(transform);
-            go.GetComponent<Rigidbody>().velocity = new Vector3(bulletDirection * speed, 0, 0);
+            go.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletDirection * speed);
             // Destroy the bullet after 2 seconds
-            Destroy(go, 1.9f);
+            Destroy(go, dieTime);
         }
         else if (color == "yellow")
         {
@@ -82,9 +84,9 @@ public class GunController : MonoBehaviour {
             prefabMesh = go.GetComponent<MeshRenderer>();
             prefabMesh.material.color = prefabColor;
             go.transform.SetParent(transform);
-            go.GetComponent<Rigidbody>().velocity = new Vector3(bulletDirection * speed, 0, 0);
+            go.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletDirection * speed);
             // Destroy the bullet after 2 seconds
-            Destroy(go, 1.9f);
+            Destroy(go, dieTime);
         }
 
 

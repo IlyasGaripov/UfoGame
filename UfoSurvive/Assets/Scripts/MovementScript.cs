@@ -5,14 +5,23 @@ using UnityEngine;
 public class MovementScript : MonoBehaviour {
     private bool rotating = true;
     public float speed;
+    public float secondSpeed;
     private int angle;
+    private bool canMoveLeft,canMoveRight = true;
+    private bool onPressed = false;
+
 
     public float smoothing;
     private Vector3 normalizeDirection;
 
+    public void Move(int direct)
+    {
+        transform.Translate(secondSpeed * direct*Time.deltaTime, 0, 0);
+    }
+
     // Use this for initialization
     void Start() {
-
+    
     }
 
     // Update is called once per frame
@@ -26,6 +35,16 @@ public class MovementScript : MonoBehaviour {
         {
             transform.Translate(new Vector3(0, 0, -1));
         }
+
+        if(Input.GetKey(KeyCode.A))
+        {
+            Move(-1);
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            Move(1);
+        }
+            
     }
 
 

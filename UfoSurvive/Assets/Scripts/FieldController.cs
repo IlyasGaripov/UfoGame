@@ -12,9 +12,10 @@ public class FieldController : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other.tag);
+
         if (other.tag == "RedBullet" && color == "red")
         {
-            Debug.Log("Fine");
+            
             Destroy(other.gameObject);
         }
         
@@ -39,7 +40,9 @@ public class FieldController : MonoBehaviour {
             Debug.Log("Fine");
             Destroy(other.gameObject);
         }
+
         else {
+            Debug.Log(other.gameObject.tag);    
             Destroy(this.gameObject);
             game.ReloadGame();
         }
