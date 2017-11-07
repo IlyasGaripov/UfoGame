@@ -544,7 +544,7 @@ MonoBehaviour:
   bulletYellowPrefab: {fileID: 1321630881338928, guid: b47e54ce8fee1bb4a92ffbac2ac11971,
     type: 2}
   speed: 15
-  fireRate: 6
+  fireRate: 7
   bulletDirection: -1
   dieTime: 5
 --- !u!114 &114730980515831614

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementScript : MonoBehaviour {
+    public Game game;
+
     private bool rotating = true;
     public float speed;
     public float secondSpeed;
@@ -13,6 +15,15 @@ public class MovementScript : MonoBehaviour {
 
     public float smoothing;
     private Vector3 normalizeDirection;
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Bullet")
+        {
+            Debug.Log("GG");
+            game.ReloadGame();
+        }
+    }
 
     public void Move(int direct)
     {

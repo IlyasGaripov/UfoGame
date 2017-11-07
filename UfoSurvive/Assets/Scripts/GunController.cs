@@ -26,6 +26,8 @@ public class GunController : MonoBehaviour {
 
     public float dieTime;
 
+
+
     // Use this for initialization
     void Start () {
         //Thi = GetComponent<Material>();

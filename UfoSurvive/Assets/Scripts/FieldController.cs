@@ -9,44 +9,25 @@ public class FieldController : MonoBehaviour {
     int health = 1;
     public string color;
 
+    public GameObject shield;
+
     private void OnTriggerEnter(Collider other)
     {
+
         //Debug.Log(other.tag);
-
-        if (other.tag == "RedBullet" && color == "red")
+        if (other.tag == "Bullet" && color == "any")
         {
-            
-            Destroy(other.gameObject);
-        }
-        
-
-        else if (other.tag == "BlueBullet" && color == "blue")
-        {
-            Debug.Log("Fine");
+            Debug.Log("bullet");
             Destroy(other.gameObject);
         }
 
-
-        else if (other.tag == "GreenBullet" && color == "green")
-        {
-            Debug.Log("Fine");
-            Destroy(other.gameObject);
-        }
-
-
-
-        else if (other.tag == "YellowBullet" && color == "yellow")
-        {
-            Debug.Log("Fine");
-            Destroy(other.gameObject);
-        }
-
-        else {
-            Debug.Log(other.gameObject.tag);    
-            Destroy(this.gameObject);
-            game.ReloadGame();
-        }
     }
+
+    public void ActivateShield()
+    {
+        shield.SetActive(!shield.activeSelf);
+    }
+
 
     // Use this for initialization
     void Start () {

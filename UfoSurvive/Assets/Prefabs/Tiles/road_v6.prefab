@@ -1527,6 +1527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb73ea8454e08da4d93ec6c57f1391c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   thisColor: {r: 1, g: 1, b: 0, a: 0}
   prefabColor: {r: 1, g: 1, b: 0, a: 0}
   color: yellow
